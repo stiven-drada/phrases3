@@ -22,28 +22,25 @@ import "./App.css";
  3. GUARDAR LA IMAGEN EN LA CARPETA PUBLIC
     -ESTAS NO SE DEBEN IMPORTAR Y DEBEN HACERSE REFERENCIA A ELLAS ASUMIENDO LA RAIZ "/"
     COMO LA CARPETA PUBLIC
-*/ 
-
-
+*/
 
 function App() {
-  const backgrounds = [surreal,skull,fantasy1,fantasy2,book];
+  const backgrounds = [surreal, skull, fantasy1, fantasy2, book];
 
-  const getRamdonPhrase = () => phrases[getRandomNumber(phrases.length -1)];
-  const getRandomBackground = () => backgrounds[getRandomNumber(backgrounds.length -1)];
-    
+  const getRamdonPhrase = () => phrases[getRandomNumber(phrases.length - 1)];
+
+  const getRandomBackground = () =>
+    backgrounds[getRandomNumber(backgrounds.length - 1)];
 
   const [phrasesObject, setPhraseOdject] = useState(getRamdonPhrase());
   const [background, setBackground] = useState(getRandomBackground());
+
   const changePhrase = () => {
     let newPhrase = getRamdonPhrase();
-    
 
-    while(newPhrase === phrasesObject){
-      newPhrase =getRamdonPhrase();
+    while (newPhrase === phrasesObject) {
+      newPhrase = getRamdonPhrase();
     }
-
-   
 
     setPhraseOdject(newPhrase);
   };
@@ -51,7 +48,7 @@ function App() {
   const changeBackground = () => {
     let newBackground = getRandomBackground();
 
-    while(newBackground === background){
+    while (newBackground === background) {
       newBackground = getRandomBackground();
     }
     setBackground(newBackground);
@@ -60,19 +57,22 @@ function App() {
   const handlerClick = () => {
     changePhrase();
     changeBackground();
-  }
+  };
 
   return (
-    <div className="container_app" style={{backgroundImage: `url("${background}")`}} >
+    <div
+      className="container_app"
+      style={{ backgroundImage: `url("${background}")` }}
+    >
       <h1>Famous phrases</h1>
-    
-      <Phrase phrase={phrasesObject.quote}/>
+
+      <Phrase phrase={phrasesObject.quote} />
       <p>
         Author: <mark>{phrasesObject.author}</mark>
       </p>
       <div className="btn_container">
-    <Button handlerClick={handlerClick}/>
-    </div>
+        <Button handlerClick={handlerClick} />
+      </div>
     </div>
   );
 }

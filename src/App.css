@@ -1,20 +1,22 @@
-.container_app{
+.container_app {
   width: 100vw;
+  min-width: 320px;
   height: 100vh;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .btn_container {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
+/* el contenedor de las frases esta creciendo, agreguele el modelo de caja alternativo. */
